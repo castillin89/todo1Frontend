@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <mat-card>
+                <mat-card-title>
+                    <div class="row margin-bottom: 10px;">
+                        <div class="col text-center">
+                            <h4>Datos del Producto</h4>
+                        </div>
+                    </div>
+                </mat-card-title>
+                <mat-card-content>
+                    <div style="display: block; max-height: 100vh;">
+                        <div class="dialog-content">
+                            <div class="row">
+                                <form [formGroup]="form" class="col text-center"
+                                    (keyup.enter)="form.valid ? login() : ''">
+                                    <mat-form-field style="width: 100%; margin-bottom: 5px;" appearance="outline">
+                                        <mat-label>Nombre</mat-label>
+                                        <input type="text" matInput placeholder="Nombre" formControlName="name"/>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 100%; margin-bottom: 5px;" appearance="outline">
+                                        <mat-label>Descripción</mat-label>
+                                        <input type="text" matInput placeholder="Descripción"
+                                            formControlName="description"/>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 45%; margin-bottom: 4px; margin-right: 5px;" appearance="outline">
+                                        <mat-label>Compañia</mat-label>
+                                        <mat-select formControlName="company">
+                                            <mat-option *ngFor="let company of companies" [value]="company['company']">
+                                                {{ company["company"] }}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 45%; margin-bottom: 5px;" appearance="outline">
+                                        <mat-label>Tipo</mat-label>
+                                        <input type="text" matInput placeholder="Tipo" formControlName="type"/>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 45%; margin-bottom: 4px; margin-right: 5px;" appearance="outline">
+                                        <mat-label>Precio</mat-label>
+                                        <input type="number" matInput placeholder="Precio" formControlName="price" min=0/>
+                                    </mat-form-field>
+                                    <mat-form-field style="width: 45%; margin-bottom: 5px;" appearance="outline">
+                                        <mat-label>Cantidad</mat-label>
+                                        <input type="number" matInput placeholder="Cantidad Disponible"
+                                            formControlName="quantity" min=0/>
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    
+                    <div class="row" style="margin-top: 10px;">
+                      <div class="col text-center">
+                        <button mat-raised-button style="width: 150px;" (click)="addProduct()">
+                            <span> Ingresar Producto</span>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col text-right">
+                        <button mat-raised-button (click)="close()">
+                          <span> Salir</span>
+                        </button>
+                      </div>
+                    </div>
+                  </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

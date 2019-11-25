@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  HttpUrl: [
+    'http://localhost:8080/todo1/getAll'
+  ],
+  refreshUrl: '',  
 };
 
 /*
